@@ -1,17 +1,20 @@
-#include "Ingredient.h"
+#pragma once
+#include "AbstractIngredient.h"
+#include "MeatType.h"
+#include <string>
 
 namespace food::ingredients::meat {
 
-class Meat : public food::ingredients::Ingredient {
+class Meat : public AbstractIngredient {
 public:
-    Meat(std::string name, enums::MeatType type);
+    // Use the enums under food::ingredients::enums
+    explicit Meat(std::string name, food::ingredients::enums::MeatType type);
 
-    std::string getName() const override;
+    // Keep an explicit description implementation
     std::string getDescription() const override;
 
 private:
-    std::string name_;
-    enums::MeatType type_;
+    food::ingredients::enums::MeatType type_;
 };
 
 } // namespace food::ingredients::meat

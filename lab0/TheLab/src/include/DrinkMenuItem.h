@@ -1,14 +1,11 @@
-// src/include/DrinkMenuItem.h
 #pragma once
 #include "MenuItem.h"
-#include <string>
-
 namespace food::items::drinks {
 class DrinkMenuItem : public food::items::MenuItem {
 public:
-    explicit DrinkMenuItem(std::string name) : name_(std::move(name)) {}
-    std::string getName() const override { return name_; }
+    DrinkMenuItem(std::string name,std::string desc,double price,double volume);
+    double getVolume() const;
 private:
-    std::string name_;
+    double volume_;
 };
-} // namespace food::items::drinks
+}

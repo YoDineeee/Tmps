@@ -1,32 +1,23 @@
-#include <iostream>
-#include <memory>
 #include "Barman.h"
-#include "MenuItem.h"
-#include "DrinkMenuItem.h" // Must define food::items::drinks::DrinkMenuItem
+#include "drinkmenu.h"
+#include <iostream>
 
 namespace employees::producers {
 
-Barman::Barman(std::string name, double salary)
-    : AbstractProducingEmployee(std::move(name), salary) {}
+Barman::Barman(std::string n,double s)
+    : AbstractProducingEmployee(std::move(n),s) {}
 
 void Barman::giveRequest(const std::shared_ptr<food::items::MenuItem>& menuItem) {
-    if (!menuItem) {
-        std::cerr << "Menu item cannot be null\n";
+    auto drink = std::dynamic_pointer_cast<food::items::drinks::DrinkMenuItem>(menuItem);
+    if(!drink){
+        std::cout<<getName()<<": cannot prepare non-drink item '"<<menuItem->getName()<<"'.\n";
         return;
     }
-
-    // Equivalent of 'instanceof DrinkMenuItem'
-    auto drinkItem = std::dynamic_pointer_cast<food::items::drinks::DrinkMenuItem>(menuItem);
-    if (!drinkItem) {
-        std::cerr << "Barman can only serve drinks\n";
-        return;
-    }
-
-    std::cout << "I'm a barman, I'm giving you some " << menuItem->getName() << '\n';
+    std::cout<<getName()<<": mixing "<<drink->getName()<<" ("<<drink->getVolume()<<" L)\n";
 }
 
 void Barman::work() {
-    std::cout << "I'm a barman, I'm working\n";
+    std::cout<<getName()<<" is serving customers.\n";
 }
 
 } // namespace employees::producers

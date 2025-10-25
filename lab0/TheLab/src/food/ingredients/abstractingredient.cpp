@@ -1,19 +1,14 @@
 #include "AbstractIngredient.h"
+#include <sstream>
 
-namespace food::ingredients {
+using namespace food::ingredients;
 
-AbstractIngredient::AbstractIngredient(
-    std::string name,
-    std::string description)
-    : name_(std::move(name))
-    , description_(std::move(description)) {}
+AbstractIngredient::AbstractIngredient(std::string name, std::string description)
+    : name_(std::move(name)), description_(std::move(description)) {}
 
-std::string AbstractIngredient::getName() const {
-    return name_;
+std::string AbstractIngredient::getName() const { return name_; }
+std::string AbstractIngredient::getDescription() const { return description_; }
+
+std::string AbstractIngredient::toString() const {
+    return name_ + " - " + description_;
 }
-
-std::string AbstractIngredient::getDescription() const {
-    return description_;
-}
-
-} // namespace food::ingredients

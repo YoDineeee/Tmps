@@ -1,17 +1,14 @@
 #pragma once
-
 #include "RecipeStep.h"
-#include <string>
+#include <memory>
 
 namespace food::recipes::steps {
 
 class OneTimeRecipeStep : public RecipeStep {
 public:
-    OneTimeRecipeStep(
-        std::shared_ptr<food::ingredients::AbstractIngredient> ingredient,
-        std::string description,
-        enums::RecipeAction action
-    );
+    OneTimeRecipeStep(std::shared_ptr<food::ingredients::AbstractIngredient> ingredient,
+                      std::string description,
+                      enums::RecipeAction action);
 
     enums::RecipeAction getAction() const override;
     std::string getDescription() const override;

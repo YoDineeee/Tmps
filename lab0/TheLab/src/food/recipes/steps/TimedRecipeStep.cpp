@@ -7,8 +7,8 @@ TimedRecipeStep::TimedRecipeStep(
     std::string description,
     enums::RecipeAction action,
     std::chrono::seconds duration)
-    : OneTimeRecipeStep(std::move(ingredient), std::move(description), action)
-    , duration_(duration) {}
+    : OneTimeRecipeStep(std::move(ingredient), std::move(description), action),
+      duration_(duration) {}
 
 std::chrono::seconds TimedRecipeStep::getDuration() const {
     return duration_;

@@ -1,17 +1,11 @@
 #pragma once
-
 #include "AbstractIngredient.h"
-
 namespace food::ingredients {
-
 class Vegetable : public AbstractIngredient {
 public:
-    Vegetable(std::string name, std::string description, bool isOrganic);
-
+    Vegetable(std::string name,std::string desc,bool organic);
     bool isOrganic() const;
-
 private:
-    bool isOrganic_;
+    bool organic_;
 };
-
-} // namespace food::ingredients
+}
