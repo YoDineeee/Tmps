@@ -1,7 +1,7 @@
 #include "FoodMenuItem.h"
 #include "Recipe.h"
 
-namespace food::items {  // ✅ FIXED namespace (no trailing ::food)
+namespace food::items {  
 
 FoodMenuItem::FoodMenuItem(std::string name,
                            std::string description,
