@@ -518,3 +518,8 @@ int main() {
 
 
 10) Visitor Method:
+
+
+11) Interpeter
+    
+    
